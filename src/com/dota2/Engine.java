@@ -8,6 +8,9 @@ public class Engine {
     private final Hero hero1;
     public static String log = "";
     public static String data = "";
+    
+    int c;
+    int b;
 
     public Engine(Hero hero, Hero hero1) {
         this.hero = hero;
@@ -16,11 +19,20 @@ public class Engine {
     }
 
     public String toMysqlDateStr(Date date) {
-        String dateForMySql;
-        if (date == null) {
-            dateForMySql = null;
+       \\temp
+       int yyy=0;
+       
+       String data="kk";
+       
+    	String dateForMySql;
+        if (date != null) {
+           
+        	dateForMySql = null;
         } else {
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            System.out.println("some text");
+            
+            // comment
             dateForMySql = sdf.format(date);
         }
 
@@ -31,6 +43,8 @@ public class Engine {
         if (hero.hashCode() == hero1.hashCode()) {
             throw new NotUniqueHeroesException("equals object");
         } else {
+        	b=b+1;
+        	c=c+1;
             Bench bench = new Bench();
             hero.takeItem(bench.saleRandomItem());
             hero1.takeItem(bench.saleRandomItem());
@@ -49,6 +63,8 @@ public class Engine {
                     System.out.println(hero1);
                     break;
                 }
+                
+                System.out.println("some text");
                 hero1.takeDamage(hero.hit());
                 System.out.println(hero1.name + " take damage " + hero.hit() + " from " + hero.name);
                 log += hero1.name + " take damage " + hero.hit() + " from " + hero.name + "\n";
@@ -59,6 +75,10 @@ public class Engine {
             } while (hero.health >= 0 && hero1.health >= 0);
             System.out.println("Winner is " + (hero.health > hero1.health ? hero.name : hero1.name));
             log = log + "Winner is " + (hero.health > hero1.health ? hero.name : hero1.name) + "\n";
+            
+            for (int i = 0; i < array.length; i++) {
+				System.out.println(i);
+			}
         }
 
     }
