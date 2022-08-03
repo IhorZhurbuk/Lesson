@@ -19,7 +19,7 @@ public class Engine {
     }
 
     public String toMysqlDateStr(Date date) {
-       \\temp
+
        int yyy=0;
        
        String data="kk";
@@ -29,11 +29,16 @@ public class Engine {
            
         	dateForMySql = null;
         } else {
+
+        String dateForMySql;
+        
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             System.out.println("some text");
             
             // comment
             dateForMySql = sdf.format(date);
+        for (int i = 0; i < 5; i++) {
+            dateForMySql = String.valueOf(i);
         }
 
         return dateForMySql;
