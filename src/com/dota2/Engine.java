@@ -19,11 +19,20 @@ public class Engine {
     }
 
     public String toMysqlDateStr(Date date) {
-        String dateForMySql;
-        if (date == null) {
-            dateForMySql = null;
+       \\temp
+       int yyy=0;
+       
+       String data="kk";
+       
+    	String dateForMySql;
+        if (date != null) {
+           
+        	dateForMySql = null;
         } else {
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            System.out.println("some text");
+            
+            // comment
             dateForMySql = sdf.format(date);
         }
 
